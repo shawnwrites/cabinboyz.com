@@ -11,163 +11,74 @@ body {
   margin: 0;
   min-height: 100vh;
   background: radial-gradient(circle at top, #1d2933 0%, #090d12 32%, #030507 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .page-shell {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-.hero {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-  align-items: center;
-  padding: 4rem 2rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.hero-copy {
-  max-width: 560px;
-}
-.eyebrow {
-  margin: 0 0 1rem;
-  font-size: 0.92rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #e7b65a;
-}
-h1 {
-  margin: 0;
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 0.95;
-}
-.hero-copy p {
-  margin: 1.2rem 0;
-  font-size: 1.05rem;
-  max-width: 42rem;
-  color: #d8d6cf;
-}
-.hero-sub {
-  color: #b4ad9a;
-}
-.cta-button {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
-  margin-top: 1rem;
-  background: linear-gradient(135deg, #ff9d27 0%, #ff6c42 100%);
-  color: #091016;
-  font-weight: 700;
+  min-height: 100vh;
+  width: 100%;
+}
+.landing-link {
   text-decoration: none;
-  border-radius: 999px;
-  box-shadow: 0 20px 60px rgba(255, 109, 69, 0.24);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
-.hero-visual {
-  display: grid;
-  place-items: center;
+.landing-container {
   position: relative;
+  display: inline-block;
+  max-width: 90vw;
+  height: auto;
 }
-.photo-frame {
-  width: min(360px, 100%);
-  aspect-ratio: 4 / 5;
-  border-radius: 2rem;
-  background: linear-gradient(180deg, #1e2b38 0%, #111826 100%);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 30px 80px rgba(0,0,0,0.45);
-  position: relative;
-  overflow: hidden;
+.landing-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
-.photo-shadow {
+.word-balloon {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 40%);
-}
-.photo-head,
-.photo-body {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, #9d8b6c 0%, #6e5b44 100%);
-  border-radius: 999px;
-}
-.photo-head {
-  width: 90px;
-  height: 90px;
-  top: 20%;
-}
-.photo-body {
-  width: 180px;
-  height: 220px;
-  top: 42%;
+  top: 15%;
+  right: -2%;
+  width: clamp(140px, 20vw, 200px);
+  padding: 1rem 1.2rem;
   border-radius: 1.5rem;
-}
-.speech-bubble {
-  position: absolute;
-  top: 12%;
-  right: -0.5rem;
-  width: clamp(180px, 100%, 260px);
-  padding: 1.2rem 1.3rem;
-  border-radius: 2rem;
-  background: rgba(255,255,255,0.96);
+  background: rgba(255, 255, 255, 0.95);
   color: #091016;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.24);
-}
-.speech-bubble p {
-  margin: 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  text-align: center;
+  transition: all 0.3s ease;
 }
-.bubble-tail {
+.landing-link:hover .word-balloon {
+  transform: scale(1.08);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+}
+.word-balloon p {
+  margin: 0;
+  line-height: 1.3;
+}
+.balloon-tail {
   position: absolute;
-  bottom: -18px;
-  left: 1.75rem;
-  width: 28px;
-  height: 28px;
-  background: rgba(255,255,255,0.96);
+  bottom: -14px;
+  left: 1.2rem;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.95);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
-.details {
-  display: grid;
-  gap: 1.5rem;
-  padding: 0 2rem 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-.details-card {
-  padding: 1.75rem;
-  border-radius: 1.5rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.details-card h2 {
-  margin-top: 0;
-  color: #ffd58f;
-}
-.details-card p {
-  margin: 1rem 0 0;
-  color: #c9c5b8;
-  line-height: 1.7;
-}
-.site-footer {
-  margin-top: auto;
-  padding: 1.5rem 2rem 2rem;
-  text-align: center;
-  color: #7b8395;
-  font-size: 0.95rem;
-}
-@media (max-width: 860px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-copy {
-    margin-bottom: 2rem;
-  }
-  .speech-bubble {
-    top: auto;
-    right: 50%;
-    left: 50%;
-    transform: translateX(50%);
+@media (max-width: 768px) {
+  .word-balloon {
+    top: 12%;
+    right: -5%;
   }
 }
